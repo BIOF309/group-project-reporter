@@ -130,6 +130,8 @@ len(df_10to17_PIsNumber)
 
 df_PI_per_year = df_10to17.groupby('fy')['pi_ids'].nunique()
 
+df_PI_per_year.to_csv('pi_per_year.csv')
+
 # new DataFrame for individual PIs 11/30/18
 df_PIs = df_10to17.filter(["application_id", "pi_names"])
 
@@ -166,7 +168,7 @@ len(df_merged)
 import matplotlib.pyplot as plt
 df_PI_per_year.plot(kind='bar')
 plt.show()
-
+plt.savefig('pi_per_year_bar.png')
 # of mechanisms and bar chart
 df_10to17_mechs = df_10to17.activity.unique()
 len(df_10to17_mechs)
